@@ -4,7 +4,6 @@ from django.contrib.auth.models import AbstractUser
 from django.core.validators import MinValueValidator, MaxValueValidator
 from multiselectfield import MultiSelectField
 
-from mysite.mysite.settings import USE_TZ
 
 ROLE_CHOICES = (
     ('Teacher', 'Teacher'),
@@ -42,11 +41,6 @@ class Student(models.Model):
             return f'{self.user}, {self.role}'
 
 
-
-from django.db import models
-from django.contrib.auth.models import AbstractUser
-
-
 class Category(models.Model):
     category = models.CharField(max_length=32)
 
@@ -55,7 +49,7 @@ class Category(models.Model):
 
 
 class Video(models.Model):
-    video = models.FileField(upload_to='/videos')
+    video = models.FileField(upload_to='videos/')
 
 
 
