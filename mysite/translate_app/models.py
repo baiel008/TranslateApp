@@ -41,6 +41,7 @@ class Student(models.Model):
             return f'{self.user}, {self.role}'
 
 
+
 class Category(models.Model):
     category = models.CharField(max_length=32)
 
@@ -69,6 +70,11 @@ class Course(models.Model):
     created_by  = models.CharField(max_length=255)
     created_at = models.DateTimeField()
     updated_at = models.DateTimeField()
+
+class Video(models.Model):
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='videos')
+    title = models.CharField(max_length=255)
+    video = models.FileField(upload_to='videos/')
 
 
 class Lesson(models.Model):

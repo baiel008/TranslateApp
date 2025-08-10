@@ -10,6 +10,10 @@ router.register(r'student', StudentViewSet, basename='student_list')
 
 urlpatterns = [
     path('', include(router.urls)),
+
+    path('register/', RegisterView.as_view(), name='register'),
+    path('login/', CustomLoginView.as_view(), name='login'),
+    path('logout/', LogoutView.as_view(), name='logout'),
     path('category/', CategoryListAPIView.as_view(), name='category_list'),
     path('category/<int:pk>/', CategoryDetailAPIView.as_view(), name='category_detail'),
     path('course/', CourseListAPIView.as_view(), name='course_list'),
